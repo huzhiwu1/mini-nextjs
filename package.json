@@ -1,0 +1,31 @@
+{
+  "name": "mini-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack.client.js",
+    "start-server": "webpack --config webpack.server.js && webpack --config webpack.client.js && node build/server.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huzhiwu1/mini-nextjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huzhiwu1/mini-nextjs/issues"
+  },
+  "homepage": "https://github.com/huzhiwu1/mini-nextjs#readme",
+  "dependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "express": "^5.2.1",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
