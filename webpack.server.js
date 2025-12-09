@@ -1,6 +1,7 @@
 const path = require("path");
 module.exports = {
   mode: "development",
+  watch: true,
   entry: "./src/react-ssr/server.js",
   target: "node",
   output: {

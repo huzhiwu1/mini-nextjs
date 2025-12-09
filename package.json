@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.client.js",
+    "build": "webpack --config webpack.server.js && webpack --config webpack.client.js",
+    "watch-client": "webpack --config webpack.client.js --watch",
+    "watch-server": "webpack --config webpack.server.js --watch",
+    "dev": "npm run build && npm run watch-server & npm run watch-client & nodemon build/server.bundle.js --watch build/server.bundle.js",
     "start-server": "webpack --config webpack.server.js && webpack --config webpack.client.js && node build/server.bundle.js"
   },
   "repository": {
@@ -27,5 +31,8 @@
     "react-dom": "^19.2.1",
     "webpack": "^5.103.0",
     "webpack-cli": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }

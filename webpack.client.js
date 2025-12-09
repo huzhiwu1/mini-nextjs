@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
+  watch: true,
   entry: "./src/client/client.js",
   output: {
     path: path.resolve(__dirname, "public"),
