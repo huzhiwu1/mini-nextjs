@@ -1,6 +1,6 @@
 import express from "express";
 import { renderToString } from "react-dom/server";
-import App from "../client/App";
+import App from "./pages/App";
 
 const app = express();
 app.use(express.static("public"));

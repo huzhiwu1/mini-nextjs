@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
   mode: "development",
   watch: true,
-  entry: "./src/client/client.js",
+  entry: "./pages/client.js",
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "client.bundle.js",
