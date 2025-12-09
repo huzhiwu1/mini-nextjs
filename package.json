@@ -9,6 +9,7 @@
     "watch-client": "webpack --config webpack.client.js --watch",
     "watch-server": "webpack --config webpack.server.js --watch",
     "dev": "npm run build && npm run watch-server & npm run watch-client & nodemon build/server.bundle.js --watch build/server.bundle.js",
+    "dev:debug": "npm run build && npm run watch-server & npm run watch-client & nodemon --inspect=9229 build/server.bundle.js --watch build/server.bundle.js",
     "start-server": "webpack --config webpack.server.js && webpack --config webpack.client.js && node build/server.bundle.js"
   },
   "repository": {

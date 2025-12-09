@@ -1,12 +1,19 @@
 import express from "express";
 import { renderToString } from "react-dom/server";
-import App from "./pages/App";
 
 const app = express();
 app.use(express.static("public"));
-const content = renderToString(<App />);
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const file = await import("./pages/index.js");
+  const { default: Page, getServerSideProps } = file;
+  let propsObj = {};
+  if (getServerSideProps) {
+    const props = await getServerSideProps({ query: req.query });
+    propsObj = props.props || {};
+  }
+  const content = renderToString(<Page {...propsObj} />);
+
   res.send(`
     <!DOCTYPE html>
         <html lang="en">
@@ -17,6 +24,9 @@ app.get("/", (req, res) => {
         </head>
         <body>
             <div id="root">${content}</div>
+            <script>
+              window.__DATA__ = ${JSON.stringify(propsObj)}            
+            </script>
             <script src="/client.bundle.js"></script>
         </body>
         </html>
